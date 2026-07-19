@@ -56,13 +56,13 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
             { to: "/groups", icon: faTableCellsLarge, title: t(($) => $.groups) },
             { to: "/reporting", icon: faDownLong, title: t(($) => $.reporting) },
             { to: "/bindings", icon: faLink, title: t(($) => $.bindings) },
-            { to: "/ota", icon: faCloudArrowUp, title: t(($) => $.ota) },
-            { to: "/touchlink", icon: faMobileVibrate, title: t(($) => $.touchlink) },
+            // { to: "/ota", icon: faCloudArrowUp, title: t(($) => $.ota) },
+            // { to: "/touchlink", icon: faMobileVibrate, title: t(($) => $.touchlink) },
             { to: "/network", icon: faHexagonNodes, title: t(($) => $.network) },
-            { to: "/logs", icon: faList, title: t(($) => $.logs) },
+            // { to: "/logs", icon: faList, title: t(($) => $.logs) },
             { to: "/activity", icon: faWaveSquare, title: t(($) => $.activity) },
             { to: "/settings", icon: faCogs, title: t(($) => $.settings) },
-            { to: "/frontend-settings", icon: faDisplay, title: t(($) => $.frontend_settings) },
+            // { to: "/frontend-settings", icon: faDisplay, title: t(($) => $.frontend_settings) },
         ],
         [t],
     );
@@ -97,7 +97,7 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
                             </header>
                             <main className="pt-2 px-2 flex-1 min-h-0 scrollbar-gutter-stable">{children}</main>
                         </div>
-                        <div className="drawer-side">
+                        {/* <div className="drawer-side">
                             <label
                                 htmlFor="notifications-drawer"
                                 aria-label="close notifications"
@@ -105,7 +105,7 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
                                 onClick={() => setShowNotifications(false)}
                             />
                             <aside className="bg-base-100 min-h-screen w-80">{showNotifications && <Notifications />}</aside>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="drawer-side lg:overflow-visible!">

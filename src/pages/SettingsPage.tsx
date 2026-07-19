@@ -20,7 +20,7 @@ type UrlParams = {
 
 const AboutTab = lazy(async () => await import("../components/settings-page/tabs/About.js"));
 const HealthTab = lazy(async () => await import("../components/settings-page/tabs/Health.js"));
-const SettingsTab = lazy(async () => await import("../components/settings-page/tabs/Settings.js"));
+// const SettingsTab = lazy(async () => await import("../components/settings-page/tabs/Settings.js"));
 const ToolsTab = lazy(async () => await import("../components/settings-page/tabs/Tools.js"));
 const BridgeTab = lazy(async () => await import("../components/settings-page/tabs/Bridge.js"));
 const DevConsoleTab = lazy(async () => await import("../components/settings-page/tabs/DevConsole.js"));
@@ -32,13 +32,16 @@ function renderTab(sourceIdx: number, tab: TabName, subTab: string | undefined) 
         case "health":
             return <HealthTab key={sourceIdx} sourceIdx={sourceIdx} />;
         case "settings":
-            return <SettingsTab key={sourceIdx} sourceIdx={sourceIdx} tab={(subTab as SettingsTabName) ?? "main"} />;
+            // return <SettingsTab key={sourceIdx} sourceIdx={sourceIdx} tab={(subTab as SettingsTabName) ?? "main"} />;
+            break;
         case "tools":
             return <ToolsTab key={sourceIdx} sourceIdx={sourceIdx} />;
         case "bridge":
-            return <BridgeTab key={sourceIdx} sourceIdx={sourceIdx} />;
+            // return <BridgeTab key={sourceIdx} sourceIdx={sourceIdx} />;
+            break;
         case "dev-console":
-            return <DevConsoleTab key={sourceIdx} sourceIdx={sourceIdx} tab={(subTab as DeviceConsoleTabName) ?? "mqtt"} />;
+            // return <DevConsoleTab key={sourceIdx} sourceIdx={sourceIdx} tab={(subTab as DeviceConsoleTabName) ?? "mqtt"} />;
+            break;
     }
 }
 
@@ -68,10 +71,10 @@ export default function SettingsPage() {
         () => [
             { to: `/settings/${sourceIdx}/about`, icon: faInfo, title: t(($) => $.about) },
             { to: `/settings/${sourceIdx}/health`, icon: faHeartPulse, title: t(($) => $.health) },
-            { to: `/settings/${sourceIdx}/settings`, icon: faCogs, title: t(($) => $.settings) },
+            // { to: `/settings/${sourceIdx}/settings`, icon: faCogs, title: t(($) => $.settings) },
             { to: `/settings/${sourceIdx}/tools`, icon: faToolbox, title: t(($) => $.tools) },
-            { to: `/settings/${sourceIdx}/bridge`, icon: faCode, title: t(($) => $.bridge) },
-            { to: `/settings/${sourceIdx}/dev-console`, icon: faBug, title: t(($) => $.dev_console) },
+            // { to: `/settings/${sourceIdx}/bridge`, icon: faCode, title: t(($) => $.bridge) },
+            // { to: `/settings/${sourceIdx}/dev-console`, icon: faBug, title: t(($) => $.dev_console) },
         ],
         [sourceIdx, t],
     );

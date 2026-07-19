@@ -231,7 +231,13 @@ const groupProperties = (
     const elements: JSX.Element[] = [];
     const nestedElements: JSX.Element[] = [];
 
+    console.log('properties: ', properties);
+
     for (const key in properties) {
+        if (['disabled', 'icon', 'qos', 'retain', 'retention', 'homeassistant'].includes(key)) {
+            continue;
+        }
+
         const property = properties[key];
 
         if (typeof property === "boolean" || property.readOnly) {

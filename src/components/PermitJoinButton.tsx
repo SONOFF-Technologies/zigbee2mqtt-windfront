@@ -106,7 +106,8 @@ const PermitJoinButton = memo(({ sidebarCollapsed }: PermitJoinButtonProps) => {
 
         setPermitClickedSourceIdx(sourceIdx);
         await sendMessage(sourceIdx, "bridge/request/permit_join", {
-            time: permitJoin ? 0 : store2.get(PERMIT_JOIN_TIME_KEY, 254),
+            // time: permitJoin ? 0 : store2.get(PERMIT_JOIN_TIME_KEY, 254),
+            time: permitJoin ? 0 : 180,
             device: device?.ieee_address,
         });
     }, [selectedRouter, permitJoin]);

@@ -31,7 +31,7 @@ export default function Tools({ sourceIdx }: ToolsProps) {
 
     return (
         <div className="join join-vertical">
-            <ConfirmButton
+            {/* <ConfirmButton
                 className="btn btn-outline btn-error join-item mb-2"
                 onClick={async () => await sendMessage(sourceIdx, "bridge/request/restart", "")}
                 title={t(($) => $.restart_zigbee2mqtt)}
@@ -64,7 +64,7 @@ export default function Tools({ sourceIdx }: ToolsProps) {
                 >
                     {t(($) => $.request_z2m_backup)}
                 </Button>
-            )}
+            )} */}
             <Button
                 className="btn btn-outline btn-primary join-item"
                 onClick={async () =>
@@ -75,7 +75,7 @@ export default function Tools({ sourceIdx }: ToolsProps) {
             >
                 {t(($) => $.add_install_code)}
             </Button>
-            <ImageLocaliser sourceIdx={sourceIdx} devices={devices} />
+            {/* <ImageLocaliser sourceIdx={sourceIdx} devices={devices} /> */}
         </div>
     );
 }

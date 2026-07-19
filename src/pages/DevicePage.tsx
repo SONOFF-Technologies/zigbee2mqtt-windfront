@@ -81,7 +81,8 @@ function renderTab(sourceIdx: number, tab: TabName, device: Device) {
         case "scene":
             return <SceneTab key={key} sourceIdx={sourceIdx} device={device} />;
         case "dev-console":
-            return <DevConsoleTab key={key} sourceIdx={sourceIdx} device={device} />;
+            // return <DevConsoleTab key={key} sourceIdx={sourceIdx} device={device} />;
+            break;
         case "docs":
             return device.definition?.model ? <DocsTab key={key} sourceIdx={sourceIdx} definitionModel={device.definition.model} /> : null;
     }
@@ -157,10 +158,10 @@ export default function DevicePage(): JSX.Element {
                     <FontAwesomeIcon icon={faWandSparkles} className="me-2" />
                     {t(($) => $.scene)}
                 </NavLink>
-                <NavLink to={`/device/${numSourceIdx}/${deviceId}/dev-console`} className={isTabActive}>
+                {/* <NavLink to={`/device/${numSourceIdx}/${deviceId}/dev-console`} className={isTabActive}>
                     <FontAwesomeIcon icon={faBug} className="me-2" />
                     {t(($) => $.dev_console)}
-                </NavLink>
+                </NavLink> */}
                 {device?.supported && device.definition?.source === "native" ? (
                     <NavLink to={`/device/${numSourceIdx}/${deviceId}/docs`} className={isTabActive}>
                         <FontAwesomeIcon icon={faFileDownload} className="me-2" />

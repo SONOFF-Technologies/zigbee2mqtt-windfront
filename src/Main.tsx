@@ -21,7 +21,7 @@ const GroupsPage = lazy(async () => await import("./pages/GroupsPage.js"));
 const GroupPage = lazy(async () => await import("./pages/GroupPage.js"));
 const ReportingPage = lazy(async () => await import("./pages/ReportingPage.js"));
 const BindingsPage = lazy(async () => await import("./pages/BindingsPage.js"));
-const OtaPage = lazy(async () => await import("./pages/OtaPage.js"));
+// const OtaPage = lazy(async () => await import("./pages/OtaPage.js"));
 const TouchlinkPage = lazy(async () => await import("./pages/TouchlinkPage.js"));
 const LogsPage = lazy(async () => await import("./pages/LogsPage.js"));
 const ActivityPage = lazy(async () => await import("./pages/ActivityPage.js"));
@@ -60,13 +60,13 @@ function App() {
                         <Route path="/group/:sourceIdx/:groupId/:tab?" element={<GroupPage />} />
                         <Route path="/reporting" element={<ReportingPage />} />
                         <Route path="/bindings" element={<BindingsPage />} />
-                        <Route path="/ota" element={<OtaPage />} />
-                        <Route path="/touchlink" element={<TouchlinkPage />} />
+                        {/* <Route path="/ota" element={<OtaPage />} /> */}
+                        {/* <Route path="/touchlink" element={<TouchlinkPage />} /> */}
                         <Route path="/network/:sourceIdx?" element={<NetworkPage />} />
-                        <Route path="/logs/:sourceIdx?" element={<LogsPage />} />
+                        {/* <Route path="/logs/:sourceIdx?" element={<LogsPage />} /> */}
                         <Route path="/activity" element={<ActivityPage />} />
                         <Route path="/settings/:sourceIdx?/:tab?/:subTab?" element={<SettingsPage />} />
-                        <Route path="/frontend-settings" element={<FrontendSettingsPage />} />
+                        {/* <Route path="/frontend-settings" element={<FrontendSettingsPage />} /> */}
                         <Route path="/contribute" element={<ContributePage />} />
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={<HomePage />} />

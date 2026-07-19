@@ -58,8 +58,8 @@ export const RemoveDeviceModal = NiceModal.create(({ sourceIdx, device, removeDe
         >
             <div className="flex flex-col gap-2">
                 <CheckboxField label={t(($) => $.force_remove)} name="force" onChange={onDeviceRemovalParamChange} checked={removeParams.force} />
-                <span className="text-xs opacity-50">{t(($) => $.force_remove_notice)}</span>
-                <CheckboxField label={t(($) => $.block_join)} name="block" onChange={onDeviceRemovalParamChange} checked={removeParams.block} />
+                {/* <span className="text-xs opacity-50">{t(($) => $.force_remove_notice)}</span> */}
+                {/* <CheckboxField label={t(($) => $.block_join)} name="block" onChange={onDeviceRemovalParamChange} checked={removeParams.block} /> */}
             </div>
         </Modal>
     );

@@ -57,7 +57,7 @@ export default function DeviceControlGroup({
             >
                 <FontAwesomeIcon icon={faRetweet} />
             </ConfirmButton>
-            <ConfirmButton<[number, string]>
+            {/* <ConfirmButton<[number, string]>
                 className={`btn btn-outline btn-info join-item btn-square ${btnClassName}`}
                 onClick={interviewDevice}
                 item={[sourceIdx, device.ieee_address]}
@@ -67,14 +67,14 @@ export default function DeviceControlGroup({
                 disabled={disableInterview}
             >
                 <FontAwesomeIcon icon={faInfo} />
-            </ConfirmButton>
-            <Button<void>
+            </ConfirmButton> */}
+            {/* <Button<void>
                 onClick={async () => await NiceModal.show(RemoveDeviceModal, { sourceIdx, device, removeDevice })}
                 className={`btn btn-outline btn-error join-item btn-square ${btnClassName}`}
                 title={t(($) => $.remove_device)}
             >
                 <FontAwesomeIcon icon={faTrash} />
-            </Button>
+            </Button> */}
         </div>
     );
 }

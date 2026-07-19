@@ -21,42 +21,42 @@ type ReportProblemLinkProps = { sourceIdx: number };
 
 type AboutProps = { sourceIdx: number };
 
-const ReportProblemLink = memo(({ sourceIdx }: ReportProblemLinkProps) => {
-    const { t } = useTranslation("zigbee");
-    const bridgeInfo = useAppStore(useShallow((state) => state.bridgeInfo[sourceIdx]));
-    const bridgeHealth = useAppStore(useShallow((state) => state.bridgeHealth[sourceIdx]));
-    const githubUrlParams = {
-        template: "problem_report.yaml",
-        z2m_version: `${bridgeInfo.version} (${bridgeInfo.commit})`,
-        adapter_fwversion: JSON.stringify(bridgeInfo.coordinator.meta),
-        adapter: bridgeInfo.coordinator.type,
-        setup: `os: \`${bridgeInfo.os.version}\`
-node: \`${bridgeInfo.os.node_version}\`
-ha: \`${bridgeInfo.config.homeassistant.enabled}\``,
-        notes:
-            bridgeHealth.response_time > 0
-                ? `
-#### Last health check
-time: \`${new Date(bridgeHealth.response_time)}\`
-os.load_average: \`${bridgeHealth.os.load_average.join(", ")}\`
-os.memory_percent: \`${bridgeHealth.os.memory_percent}\`
-process.memory_percent: \`${bridgeHealth.process.memory_percent}\`
-process.uptime_sec: \`${Math.round(bridgeHealth.process.uptime_sec)}\`
-`
-                : "",
-    };
+// const ReportProblemLink = memo(({ sourceIdx }: ReportProblemLinkProps) => {
+//     const { t } = useTranslation("zigbee");
+//     const bridgeInfo = useAppStore(useShallow((state) => state.bridgeInfo[sourceIdx]));
+//     const bridgeHealth = useAppStore(useShallow((state) => state.bridgeHealth[sourceIdx]));
+//     const githubUrlParams = {
+//         template: "problem_report.yaml",
+//         z2m_version: `${bridgeInfo.version} (${bridgeInfo.commit})`,
+//         adapter_fwversion: JSON.stringify(bridgeInfo.coordinator.meta),
+//         adapter: bridgeInfo.coordinator.type,
+//         setup: `os: \`${bridgeInfo.os.version}\`
+// node: \`${bridgeInfo.os.node_version}\`
+// ha: \`${bridgeInfo.config.homeassistant.enabled}\``,
+//         notes:
+//             bridgeHealth.response_time > 0
+//                 ? `
+// #### Last health check
+// time: \`${new Date(bridgeHealth.response_time)}\`
+// os.load_average: \`${bridgeHealth.os.load_average.join(", ")}\`
+// os.memory_percent: \`${bridgeHealth.os.memory_percent}\`
+// process.memory_percent: \`${bridgeHealth.process.memory_percent}\`
+// process.uptime_sec: \`${Math.round(bridgeHealth.process.uptime_sec)}\`
+// `
+//                 : "",
+//     };
 
-    return (
-        <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            to={`${Z2M_NEW_GITHUB_ISSUE_URL}?${new URLSearchParams(githubUrlParams).toString()}`}
-            className="btn btn-ghost"
-        >
-            {t(($) => $.report_problem)}
-        </Link>
-    );
-});
+//     return (
+//         <Link
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             to={`${Z2M_NEW_GITHUB_ISSUE_URL}?${new URLSearchParams(githubUrlParams).toString()}`}
+//             className="btn btn-ghost"
+//         >
+//             {t(($) => $.report_problem)}
+//         </Link>
+//     );
+// });
 
 export default function About({ sourceIdx }: AboutProps) {
     const { t } = useTranslation(["settings", "common", "zigbee"]);
@@ -104,7 +104,7 @@ export default function About({ sourceIdx }: AboutProps) {
 
     return (
         <div className="flex flex-col gap-3 items-center text-center w-full">
-            <ReportProblemLink sourceIdx={sourceIdx} />
+            {/* <ReportProblemLink sourceIdx={sourceIdx} /> */}
             <div className="stats stats-vertical lg:stats-horizontal shadow">
                 {MULTI_INSTANCE && (
                     <div className="stat place-items-center">
@@ -115,11 +115,11 @@ export default function About({ sourceIdx }: AboutProps) {
                         <div className="stat-desc max-w-md whitespace-normal">{API_URLS[sourceIdx]}</div>
                     </div>
                 )}
-                <div className="stat place-items-center">
+                {/* <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.zigbee2mqtt_version)}</div>
                     <div className="stat-value text-lg">{zigbee2mqttVersion}</div>
                     <div className="stat-desc">{zigbee2mqttCommit}</div>
-                </div>
+                </div> */}
                 <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.frontend_version)}</div>
                     <div className="stat-value text-lg">{frontendVersion}</div>

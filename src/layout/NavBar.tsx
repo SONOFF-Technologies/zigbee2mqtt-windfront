@@ -31,7 +31,7 @@ const NavBar = memo(({ setSidebarCollapsed, showNotifications, setShowNotificati
                 {content}
             </div>
 
-            <div className="flex flex-row flex-wrap gap-1 items-center ml-auto">
+            {/* <div className="flex flex-row flex-wrap gap-1 items-center ml-auto">
                 <label
                     htmlFor="notifications-drawer"
                     className="drawer-button btn btn-sm btn-outline btn-primary tooltip tooltip-left"
@@ -46,7 +46,7 @@ const NavBar = memo(({ setSidebarCollapsed, showNotifications, setShowNotificati
                         <span className="status status-error animate-bounce" />
                     ) : null}
                 </label>
-            </div>
+            </div> */}
         </div>
     );
 });

@@ -84,62 +84,62 @@ ${JSON.stringify(device.endpoints, endpointsReplacer)}
     );
 });
 
-const ReportProblemLink = memo(({ sourceIdx, device }: LinkProps) => {
-    const { t } = useTranslation("zigbee");
-    const bridgeInfo = useAppStore(useShallow((state) => state.bridgeInfo[sourceIdx]));
-    const bridgeHealth = useAppStore(useShallow((state) => state.bridgeHealth[sourceIdx]));
-    const definition = device.definition;
+// const ReportProblemLink = memo(({ sourceIdx, device }: LinkProps) => {
+//     const { t } = useTranslation("zigbee");
+//     const bridgeInfo = useAppStore(useShallow((state) => state.bridgeInfo[sourceIdx]));
+//     const bridgeHealth = useAppStore(useShallow((state) => state.bridgeHealth[sourceIdx]));
+//     const definition = device.definition;
 
-    if (!definition) {
-        return null;
-    }
+//     if (!definition) {
+//         return null;
+//     }
 
-    const definitionModel = definition.model !== device.model_id ? ` (${definition.model})` : "";
-    const githubUrlParams = {
-        template: "problem_report.yaml",
-        title: `[${device.model_id}${definitionModel} / ${device.manufacturer}] ???`,
-        z2m_version: `${bridgeInfo.version} (${bridgeInfo.commit})`,
-        adapter_fwversion: JSON.stringify(bridgeInfo.coordinator.meta),
-        adapter: bridgeInfo.coordinator.type,
-        setup: `os: \`${bridgeInfo.os.version}\`
-node: \`${bridgeInfo.os.node_version}\`
-ha: \`${bridgeInfo.config.homeassistant.enabled}\``,
-        notes: `
-#### Device
-definition: \`${definition.model}\` - \`${definition.vendor}\` (\`v${definition.version ?? "0.0.0"}\`)
-software_build_id: \`${device.software_build_id}\`
-date_code: \`${device.date_code}\`
-endpoints:
-\`\`\`json
-${JSON.stringify(device.endpoints)}
-\`\`\``,
-    };
+//     const definitionModel = definition.model !== device.model_id ? ` (${definition.model})` : "";
+//     const githubUrlParams = {
+//         template: "problem_report.yaml",
+//         title: `[${device.model_id}${definitionModel} / ${device.manufacturer}] ???`,
+//         z2m_version: `${bridgeInfo.version} (${bridgeInfo.commit})`,
+//         adapter_fwversion: JSON.stringify(bridgeInfo.coordinator.meta),
+//         adapter: bridgeInfo.coordinator.type,
+//         setup: `os: \`${bridgeInfo.os.version}\`
+// node: \`${bridgeInfo.os.node_version}\`
+// ha: \`${bridgeInfo.config.homeassistant.enabled}\``,
+//         notes: `
+// #### Device
+// definition: \`${definition.model}\` - \`${definition.vendor}\` (\`v${definition.version ?? "0.0.0"}\`)
+// software_build_id: \`${device.software_build_id}\`
+// date_code: \`${device.date_code}\`
+// endpoints:
+// \`\`\`json
+// ${JSON.stringify(device.endpoints)}
+// \`\`\``,
+//     };
 
-    if (bridgeHealth.response_time > 0) {
-        githubUrlParams.notes += `
-##### Health
-time: \`${new Date(bridgeHealth.response_time)}\`
-os.load_average: \`${bridgeHealth.os.load_average.join(", ")}\`
-os.memory_percent: \`${bridgeHealth.os.memory_percent}\`
-process.memory_percent: \`${bridgeHealth.process.memory_percent}\`
-process.uptime_sec: \`${Math.round(bridgeHealth.process.uptime_sec)}\`
-\`\`\`json
-${JSON.stringify(bridgeHealth.devices[device.ieee_address] ?? {})}
-\`\`\`
-`;
-    }
+//     if (bridgeHealth.response_time > 0) {
+//         githubUrlParams.notes += `
+// ##### Health
+// time: \`${new Date(bridgeHealth.response_time)}\`
+// os.load_average: \`${bridgeHealth.os.load_average.join(", ")}\`
+// os.memory_percent: \`${bridgeHealth.os.memory_percent}\`
+// process.memory_percent: \`${bridgeHealth.process.memory_percent}\`
+// process.uptime_sec: \`${Math.round(bridgeHealth.process.uptime_sec)}\`
+// \`\`\`json
+// ${JSON.stringify(bridgeHealth.devices[device.ieee_address] ?? {})}
+// \`\`\`
+// `;
+//     }
 
-    return (
-        <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            to={`${Z2M_NEW_GITHUB_ISSUE_URL}?${new URLSearchParams(githubUrlParams).toString()}`}
-            className="btn btn-ghost"
-        >
-            {t(($) => $.report_problem)}
-        </Link>
-    );
-});
+//     return (
+//         <Link
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             to={`${Z2M_NEW_GITHUB_ISSUE_URL}?${new URLSearchParams(githubUrlParams).toString()}`}
+//             className="btn btn-ghost"
+//         >
+//             {t(($) => $.report_problem)}
+//         </Link>
+//     );
+// });
 
 export default function DeviceInfo({ sourceIdx, device }: DeviceInfoProps) {
     const { t } = useTranslation(["zigbee", "availability", "common", "ota"]);
@@ -372,7 +372,7 @@ export default function DeviceInfo({ sourceIdx, device }: DeviceInfoProps) {
                                         <span>{t(($) => $.not_assessed, { ns: "common" })}</span>
                                     )}
                                     <span className="ms-3">
-                                        <OtaControlGroup
+                                        {/* <OtaControlGroup
                                             sourceIdx={sourceIdx}
                                             device={device}
                                             otaSettings={bridgeConfig.ota}
@@ -381,7 +381,7 @@ export default function DeviceInfo({ sourceIdx, device }: DeviceInfoProps) {
                                             onUpdateClick={onOtaUpdateClick}
                                             onScheduleClick={onOtaScheduleClick}
                                             onUnscheduleClick={onOtaUnscheduleClick}
-                                        />
+                                        /> */}
                                     </span>
                                 </p>
                                 {otaInstalledVersion ? (
@@ -446,7 +446,7 @@ export default function DeviceInfo({ sourceIdx, device }: DeviceInfoProps) {
                     )}
                 </div>
                 <div className="card-actions justify-center md:justify-end mt-2 me-4">
-                    {<ReportProblemLink sourceIdx={sourceIdx} device={device} />}
+                    {/* {<ReportProblemLink sourceIdx={sourceIdx} device={device} />} */}
                     <DeviceControlGroup
                         sourceIdx={sourceIdx}
                         device={device}
