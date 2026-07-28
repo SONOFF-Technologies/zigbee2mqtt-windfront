@@ -68,13 +68,13 @@ export default function DeviceControlGroup({
             >
                 <FontAwesomeIcon icon={faInfo} />
             </ConfirmButton> */}
-            {/* <Button<void>
+            <Button<void>
                 onClick={async () => await NiceModal.show(RemoveDeviceModal, { sourceIdx, device, removeDevice })}
                 className={`btn btn-outline btn-error join-item btn-square ${btnClassName}`}
                 title={t(($) => $.remove_device)}
             >
                 <FontAwesomeIcon icon={faTrash} />
-            </Button> */}
+            </Button>
         </div>
     );
 }
