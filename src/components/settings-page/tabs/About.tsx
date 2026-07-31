@@ -140,7 +140,7 @@ export default function About({ sourceIdx }: AboutProps) {
                     <div className="stat-desc">CPU: {bridgeInfo.os.cpus}</div>
                     <div className="stat-desc">RAM: {bridgeInfo.os.memory_mb} MB</div>
                 </div>
-                <div className="stat place-items-center">
+                {/* <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.mqtt)}</div>
                     <div className="stat-value text-lg">{bridgeInfo.mqtt.server}</div>
                     <div className="stat-desc">
@@ -148,7 +148,7 @@ export default function About({ sourceIdx }: AboutProps) {
                             {t(($) => $.version)}: {bridgeInfo.mqtt.version}
                         </a>
                     </div>
-                </div>
+                </div> */}
                 <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.node_version)}</div>
                     <div className="stat-value text-lg">
