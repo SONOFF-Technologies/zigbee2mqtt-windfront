@@ -115,11 +115,11 @@ export default function About({ sourceIdx }: AboutProps) {
                         <div className="stat-desc max-w-md whitespace-normal">{API_URLS[sourceIdx]}</div>
                     </div>
                 )}
-                {/* <div className="stat place-items-center">
+                <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.zigbee2mqtt_version)}</div>
                     <div className="stat-value text-lg">{zigbee2mqttVersion}</div>
                     <div className="stat-desc">{zigbee2mqttCommit}</div>
-                </div> */}
+                </div>
                 <div className="stat place-items-center">
                     <div className="stat-title">{t(($) => $.frontend_version)}</div>
                     <div className="stat-value text-lg">{frontendVersion}</div>
