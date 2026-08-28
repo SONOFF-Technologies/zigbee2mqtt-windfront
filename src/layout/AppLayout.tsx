@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 import { Link, NavLink, type NavLinkRenderProps } from "react-router";
 import store2 from "store2";
 import LanguageSwitcher from "../components/LanguageSwitcher.js";
-import Notifications from "../components/Notifications.js";
+// import Notifications from "../components/Notifications.js";
 import PermitJoinButton from "../components/PermitJoinButton.js";
 import ThemeSwitcher from "../components/ThemeSwitcher.js";
 import { HELP_URL } from "../consts.js";
@@ -50,19 +50,19 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
 
     const links = useMemo(
         () => [
-            { to: "/", icon: faHouseChimneyUser, title: t(($) => $.home) },
-            { to: "/dashboard", icon: faTableColumns, title: t(($) => $.dashboard) },
-            { to: "/devices", icon: faPlug, title: t(($) => $.devices) },
-            { to: "/groups", icon: faTableCellsLarge, title: t(($) => $.groups) },
-            { to: "/reporting", icon: faDownLong, title: t(($) => $.reporting) },
-            { to: "/bindings", icon: faLink, title: t(($) => $.bindings) },
-            { to: "/ota", icon: faCloudArrowUp, title: t(($) => $.ota) },
-            { to: "/touchlink", icon: faMobileVibrate, title: t(($) => $.touchlink) },
+            // { to: "/", icon: faHouseChimneyUser, title: t(($) => $.home) },
+            // { to: "/dashboard", icon: faTableColumns, title: t(($) => $.dashboard) },
+            // { to: "/devices", icon: faPlug, title: t(($) => $.devices) },
+            // { to: "/groups", icon: faTableCellsLarge, title: t(($) => $.groups) },
+            // { to: "/reporting", icon: faDownLong, title: t(($) => $.reporting) },
+            // { to: "/bindings", icon: faLink, title: t(($) => $.bindings) },
+            // { to: "/ota", icon: faCloudArrowUp, title: t(($) => $.ota) },
+            // { to: "/touchlink", icon: faMobileVibrate, title: t(($) => $.touchlink) },
             { to: "/network", icon: faHexagonNodes, title: t(($) => $.network) },
-            { to: "/logs", icon: faList, title: t(($) => $.logs) },
-            { to: "/activity", icon: faWaveSquare, title: t(($) => $.activity) },
-            { to: "/settings", icon: faCogs, title: t(($) => $.settings) },
-            { to: "/frontend-settings", icon: faDisplay, title: t(($) => $.frontend_settings) },
+            // { to: "/logs", icon: faList, title: t(($) => $.logs) },
+            // { to: "/activity", icon: faWaveSquare, title: t(($) => $.activity) },
+            // { to: "/settings", icon: faCogs, title: t(($) => $.settings) },
+            // { to: "/frontend-settings", icon: faDisplay, title: t(($) => $.frontend_settings) },
         ],
         [t],
     );
@@ -97,7 +97,7 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
                             </header>
                             <main className="pt-2 px-2 flex-1 min-h-0 scrollbar-gutter-stable">{children}</main>
                         </div>
-                        <div className="drawer-side">
+                        {/* <div className="drawer-side">
                             <label
                                 htmlFor="notifications-drawer"
                                 aria-label="close notifications"
@@ -105,7 +105,7 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
                                 onClick={() => setShowNotifications(false)}
                             />
                             <aside className="bg-base-100 min-h-screen w-80">{showNotifications && <Notifications />}</aside>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="drawer-side lg:overflow-visible!">
@@ -146,7 +146,7 @@ const AppLayout = memo(({ children }: AppLayoutProps) => {
                                 ))}
                             </ul>
 
-                            <PermitJoinButton sidebarCollapsed={sidebarCollapsed} />
+                            {/* <PermitJoinButton sidebarCollapsed={sidebarCollapsed} /> */}
 
                             <div className={`menu w-full p-2 gap-2 flex-row justify-center ${sidebarCollapsed ? "hidden lg:hidden" : ""}`}>
                                 <Link to={HELP_URL} className="btn btn-outline btn-primary" target="_blank" rel="noopener noreferrer">
